@@ -31,7 +31,7 @@ jobs:
         run: pip install -e .[all,dev,test]
       - name: Install Django
         run: pip install "Django${{ matrix.django-version }}"
-      - name: Install dev dependencies
-        run: pip install uv tox tox-gh-actions
+      - name: Install Hatch project manager
+        run: pip install hatch
       - name: Test
-        run: bash scripts/test.sh
+        run: hatch run test:test
