@@ -5,7 +5,7 @@
 [![PyPI Supported Django Versions](https://img.shields.io/pypi/djversions/dj-svg.svg)](https://docs.djangoproject.com/en/dev/releases/)
 [![GitHub Actions (Code quality and tests)](https://github.com/xshapira/dj-svg/workflows/Code%20quality%20and%20tests/badge.svg)](https://github.com/xshapira/dj-svg)
 
-dj-svg is a fork of [django-inline-svg](https://github.com/mixxorz/django-inline-svg) which works with Django >5, it's a simple plugin that adds an `svg` template tag to inline your SVGs in your
+dj-svg is a fork of [django-inline-svg](https://github.com/mixxorz/django-inline-svg) which works with Django >4, it's a simple plugin that adds an `svg` template tag to inline your SVGs in your
 Django templates.
 
 ## Installation
