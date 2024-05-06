@@ -17,7 +17,7 @@ register = template.Library()
 def svg(filename, *args, **kwargs):
     SVG_DIRS = getattr(settings, "SVG_DIRS", [])
 
-    if type(SVG_DIRS) != list:
+    if not isinstance(SVG_DIRS, list):
         raise ImproperlyConfigured("SVG_DIRS setting must be a list")
 
     path = None
