@@ -1,5 +1,6 @@
 import logging
 import os
+import pathlib
 
 from django import template
 from django.conf import settings
@@ -44,13 +45,9 @@ def svg(filename, *args, **kwargs):
     if isinstance(path, (list, tuple)):
         path = path[0]
 
-    with open(path) as svg_file:
-        svg = svg_file.read()
-
+    svg = pathlib.Path(path).read_text()
     if kwargs:
         attributes = " ".join([f'{k}="{v}"' for k, v in kwargs.items()])
         svg = svg.replace("<svg", "<svg " + attributes)
 
-    svg = mark_safe(svg)
-
-    return svg
+    return mark_safe(svg)
