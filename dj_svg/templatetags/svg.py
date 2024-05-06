@@ -48,6 +48,6 @@ def svg(filename, *args, **kwargs):
     svg = pathlib.Path(path).read_text()
     if kwargs:
         attributes = " ".join([f'{k}="{v}"' for k, v in kwargs.items()])
-        svg = svg.replace("<svg", "<svg " + attributes)
+        svg = svg.replace("<svg", f"<svg {attributes}")
 
     return mark_safe(svg)
