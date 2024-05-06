@@ -40,14 +40,7 @@ dependencies = ["Django>=4.0", "docutils"]
 
 [tool.hatch.envs.default]
 installer = "uv"
-dependencies = [
-  "pytest",
-  "pytest-cov",
-  "pytest-django",
-  "black",
-  "flake8",
-  "tox",
-]
+dependencies = ["pytest", "pytest-cov", "pytest-django", "ruff", "tox"]
 
 [project.urls]
 Homepage = "https://github.com/xshapira/dj-svg"
@@ -58,3 +51,29 @@ path = "dj_svg/__init__.py"
 
 [tool.hatch.build.targets.sdist]
 include = ["/dj_svg"]
+
+[tool.ruff]
+line-length = 88
+exclude = [
+  '.git',
+  '__pycache__',
+  '__init__.py',
+  '.mypy_cache',
+  '.pytest_cache',
+  '.tox/*',
+]
+lint.select = [
+  "E",  # pycodestyle errors
+  "W",  # pycodestyle warnings
+  "F",  # pyflakes
+  "I",  # isort
+  "C",  # flake8-comprehensions
+  "B",  # flake8-bugbear
+  "UP", # pyupgrade
+]
+lint.ignore = [
+  "E501", # line too long
+  "C901", # Comprehension is too complex (11 > 10)
+  "W191", # indentation contains tabs
+  "E402",
+]
