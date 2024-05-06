@@ -63,6 +63,7 @@ path = "dj_svg/__init__.py"
 
 [tool.hatch.build.targets.sdist]
 include = ["/dj_svg"]
+exclude = ["/.github"]
 
 [tool.ruff]
 line-length = 88
