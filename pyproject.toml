@@ -36,7 +36,23 @@ dependencies = ["Django>=4.0", "docutils"]
 
 [tool.hatch.envs.default]
 installer = "uv"
-dependencies = ["pytest", "pytest-cov", "pytest-django", "ruff", "tox"]
+dependencies = ["pytest", "pytest-cov", "pytest-django", "ruff"]
+
+[[tool.hatch.envs.test.matrix]]
+python = ["3.8", "3.9", "3.10", "3.11"]
+django = ["4.0", "4.1", "4.2"]
+
+[[tool.hatch.envs.test.matrix]]
+python = ["3.10", "3.11", "3.12"]
+django = ["5.0"]
+
+[tool.hatch.envs.test]
+dependencies = ["django~={matrix:django}.0"]
+
+[tool.hatch.envs.test.scripts]
+test = "python runtests.py"
+run-ruff-lint = "ruff check dj_svg"
+run-ruff-format = "ruff format dj_svg --check"
 
 [project.urls]
 Homepage = "https://github.com/xshapira/dj-svg"
