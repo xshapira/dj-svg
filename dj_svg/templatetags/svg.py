@@ -1,4 +1,3 @@
-from __future__ import absolute_import
 import logging
 import os
 
@@ -25,19 +24,15 @@ def svg(filename, *args, **kwargs):
 
     if SVG_DIRS:
         for directory in SVG_DIRS:
-            svg_path = os.path.join(
-                directory, "{filename}.svg".format(filename=filename)
-            )
+            svg_path = os.path.join(directory, f"{filename}.svg")
 
             if os.path.isfile(svg_path):
                 path = svg_path
     else:
-        path = finders.find(
-            os.path.join("svg", "{filename}.svg".format(filename=filename)), all=True
-        )
+        path = finders.find(os.path.join("svg", f"{filename}.svg"), all=True)
 
     if not path:
-        message = "SVG '{filename}.svg' not found".format(filename=filename)
+        message = f"SVG '{filename}.svg' not found"
 
         # Raise exception if DEBUG is True, else just log a warning.
         if settings.DEBUG:
@@ -54,7 +49,7 @@ def svg(filename, *args, **kwargs):
         svg = svg_file.read()
 
     if kwargs:
-        attributes = " ".join(['{}="{}"'.format(k, v) for k, v in kwargs.items()])
+        attributes = " ".join([f'{k}="{v}"' for k, v in kwargs.items()])
         svg = svg.replace("<svg", "<svg " + attributes)
 
     svg = mark_safe(svg)

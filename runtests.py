@@ -5,7 +5,6 @@ import django
 from django.conf import settings
 from django.test.runner import DiscoverRunner
 
-
 DIRNAME = os.path.dirname(__file__)
 BASE_DIR = os.path.abspath(DIRNAME)
 settings.configure(
