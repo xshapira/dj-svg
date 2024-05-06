@@ -58,6 +58,18 @@ You can set `SVG_DIRS` to control where to look for your svgs.
     ]
 ```
 
+### Passing html attributes to svg templatetag
+
+With inlining SVG's, it's helpful to give them class names so you can change the fill color using CSS. And if you're using a framework like tailwind, you can do it like so:
+
+```jinja
+{% svg 'icon-search' class='h-10 mt-6' %}
+```
+
+This will add fixed height and top margin to SVG.
+
+Thanks to [Jure Cuhalev](https://github.com/jurecuhalev) for this one.
+
 ## Support
 
 The tests are run against Django 4.0 to 5.0.4 on Python 3.8 to 3.12.
