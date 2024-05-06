@@ -7,7 +7,7 @@ name = "dj-svg"
 dynamic = ["version"]
 description = "SVG template tag for Django"
 readme = "README.md"
-license = "MIT License"
+license = "MIT"
 requires-python = ">=3.8"
 authors = [{ name = "Max Shapira", email = "max@winoutt.com" }]
 maintainers = [{ name = "Max Shapira", email = "max@winoutt.com" }]
